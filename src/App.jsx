@@ -27,14 +27,24 @@ import twitter from "./images/icon-twitter.svg";
 // import Newsletter from "./components/Newsletter";
 // import ProductCard from "./components/ProductCard";
 // import LoginForm from "./components/LoginForm";
+
 import manImg from "./images/desktop/image-interactive.jpg";
+
+import menuSvg from "./images/icon-hamburger.svg";
+import closeSvg from "./images/icon-close.svg";
+import { useState } from "react";
+
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuHandler = () => {
+    setIsMenuOpen(prevState => !prevState);
+  }
   return (
     // hero section
     <>
       <section className="hero">
         {/* hero container      */}
-        <div className="container max-w-6xl mx-auto px-6 py-12">
+        <div className="container relative max-w-6xl mx-auto px-6 py-12">
           {/* Menu */}
           <nav className="flex items-center justify-between font-bold text-white">
             <img src={logo} alt="logo" />
@@ -61,9 +71,19 @@ function App() {
                 <div className="mx-2 group-hover:border-b group-hover:border-blue-50"></div>
               </div>
             </div>
+            <div className="z-50 font-bold md:hidden" onClick={menuHandler}>
+              {!isMenuOpen ? <img src={menuSvg} alt="menuIcon" /> : <img src={closeSvg} alt="closeIcon" />}
+            </div>
           </nav>
 
           {/* to do hamburger menu */}
+          <div className={`menu ${isMenuOpen ? "menuopen" : "menuclose"}`}>
+            <a href="#" className="hover:text-pink-500 ">About</a>
+            <a href="#" className="hover:text-pink-500 ">Careers</a>
+            <a href="#" className="hover:text-pink-500 ">Events</a>
+            <a href="#" className="hover:text-pink-500 ">Product</a>
+            <a href="#" className="hover:text-pink-500 ">Support</a>
+          </div>
           <div className="max-w-lg mt-32 mb-32 p-4 font-sans text-4xl text-white uppercase border-2 md:p-10 md:m-32 md:mx-0
         md:text-6xl">
             Impressive experiences that deliver

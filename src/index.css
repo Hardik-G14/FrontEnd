@@ -17,6 +17,17 @@
     }
 }
 
+.menu{
+    @apply absolute text-white top-0 items-center left-0 w-full pt-24 text-lg uppercase space-y-8 flex-col bg-black  z-10 p-7 
+}
+
+.menuclose{
+    @apply flex -translate-y-full duration-300
+}
+
+.menuopen{
+    @apply flex duration-300
+}
 .item-container{
     @apply flex flex-col justify-between w-full space-y-6 
     text-2xl text-white uppercase md:flex-row md:space-y-0
